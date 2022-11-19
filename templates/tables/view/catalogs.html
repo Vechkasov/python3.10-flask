@@ -1,0 +1,37 @@
+{% extends "tables/view/table.html" %}
+
+{% block data %}
+
+    <div class="row">
+        {% if data %}
+            {% for item in data %}
+                <div class="col-4">
+                    <div class="p-4 alert alert-primary">
+
+                        <div class="alert alert-light">
+                            <h3><b>{{ item.name }}</b></h3>
+                        </div>
+
+                        <div class="alert alert-light">
+                            <h4><b>Manufacturer</b></h4>
+                            <p>Name : {{ item.manufacturer.name }}</p>
+                            <p>Name : {{ item.manufacturer.country }}</p>
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-4">
+                    <div class="p-4 alert alert-primary">
+                        <h3><b>Table is empty</b></h3>
+                    </div>
+                </div>
+        {% endif %}
+    </div>
+
+{% endblock %}
+
+{% block add_link %}
+    {{ url_for('tables.catalogs_table_add') }}
+{% endblock %}

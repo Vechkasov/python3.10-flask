@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>{{ title }}</h1>
+
+        {% block data %}{% endblock %}
+
+        <a href="{% block add_link %}{% endblock %}">
+            <button type="button" class="btn btn-outline-primary fs-4 bg-primary text-dark">
+                Add
+            </button>
+        </a>
+    </div>
+{% endblock %}

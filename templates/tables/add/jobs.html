@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-4">
+        <form action="" method="post"  novalidate class="form-control m-3 p-4 w-50">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.job_title.label }}<br>
+                {{ form.job_title(class_="form-control w-50", size=32) }}<br>
+
+                {% for error in form.job_title.errors %}
+                    <span class="alert alert-warning">{{ error }}</span>
+                {% endfor %}
+            </p>
+
+            <div class="row">
+                <div class="col-6">
+                    {{ form.salary.label }}<br>
+                    {{ form.salary(class_="form-control", size=32) }}<br>
+
+                    {% for error in form.salary.errors %}
+                        <span class="alert alert-warning">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="col-6 justify-content-end text-end align-bottom">
+                    {{ form.submit(class_="btn btn-lg btn-primary mt-4") }}
+                </div>
+            </div>
+        </form>
+    </div>
+ {% endblock %}

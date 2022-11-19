@@ -1,0 +1,57 @@
+{% extends "tables/view/table.html" %}
+
+{% block data %}
+    <div class="row">
+        {% if data %}
+            {% for item in data %}
+                <div class="col-4">
+                    <div class="p-4 alert alert-primary">
+
+                        <div class="row">
+                            <div class="col-10">
+                                <h2>{{ item.surname }}</h2>
+                            </div>
+                            <div class="col-2 justify-content-end">
+                                <a href="{{ url_for('tables.assignments_table_delete', id=item.id) }}">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <p><h2>{{ item.name }}</h2></p>
+                        <p><h2>{{ item.patronymic }}</h2></p>
+
+                        <div class="row justify-content-between m-2">
+                            <div class="alert alert-light">
+                                <h3><b>Employee</b></h3>
+                                <p>{{ item.employee.surname }}</p>
+                                <p>{{ item.employee.name }}</p>
+                                <p>{{ item.employee.patronymic }}</p>
+                                <b>Phone number : {{ item.employee.phone_number }}</b>
+                            </div>
+
+                            <div class="alert alert-light">
+                                <h3><b>Job</b></h3>
+                                <p>{{ item.job.job_title }}, {{ item.job.salary }}$</p>
+                            </div>
+
+                            <p class="justify-content-end text-end"><b>{{ item.appointment_date.strftime('%Y-%m-%d') }}</b></p>
+
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-4">
+                    <div class="p-4 alert alert-primary">
+                        <h3><b>Table is empty</b></h3>
+                    </div>
+                </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block add_link %}
+    {{ url_for('tables.assignments_table_add') }}
+{% endblock %}

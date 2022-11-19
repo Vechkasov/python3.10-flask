@@ -1,0 +1,49 @@
+{% extends "tables/view/table.html" %}
+
+{% block data %}
+
+    <div class="row">
+        {% if data %}
+            {% for item in data %}
+                <div class="col-4">
+                    <div class="p-4 alert alert-primary">
+                        <div class="row">
+                            <div class="col-10">
+                                <h2>{{ item.surname }}</h2>
+                            </div>
+                            <div class="col-2 justify-content-end">
+                                <a href="{{ url_for('tables.employees_table_delete', id=item.id) }}">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <p><h2>{{ item.name }}</h2></p>
+                        <p><h2>{{ item.patronymic }}</h2></p>
+
+                        <div class="row justify-content-between m-2">
+                            <div class="col-6 alert alert-light">
+                                <p>Date of birth : <b>{{ item.date_of_birth }}</b></p>
+                            </div>
+                            <div class="col-5 alert alert-light justify-content-end ">
+                                <p>Phone number: <b>{{ item.phone_number }}</b></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-4">
+                    <div class="p-4 alert alert-primary">
+                        <h3><b>Table is empty</b></h3>
+                    </div>
+                </div>
+        {% endif %}
+    </div>
+
+{% endblock %}
+
+{% block add_link %}
+    {{ url_for('tables.employees_table_add') }}
+{% endblock %}

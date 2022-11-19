@@ -1,0 +1,48 @@
+{% extends "tables/view/table.html" %}
+
+{% block data %}
+
+    <div class="row">
+        {% if data %}
+            {% for item in data %}
+                <div class="col-4">
+                    <div class="p-4 alert alert-primary">
+
+                        <div class="alert alert-light">
+                            <h3><b>Employee</b></h3>
+                            <p>{{ item.employee.surname }}</p>
+                            <p>{{ item.employee.name }}</p>
+                            <p>{{ item.employee.patronymic }}</p>
+                            <b>Phone number : {{ item.employee.phone_number }}</b>
+                        </div>
+
+                        <div class="alert alert-light">
+                            <h3><b>Item</b></h3>
+                            <p>Name : {{ item.item.name }}</p>
+                            <p>Price : {{ item.item.price }}$</p>
+                        </div>
+
+                        <div class="alert alert-light">
+                            <p>Count : {{ item.count }}</p>
+                            <p>Sum : {{ item.sum }}$</p>
+                        </div>
+
+                        <p class="justify-content-end text-end"><b>{{ item.date.strftime('%Y-%m-%d') }}</b></p>
+
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-4">
+                    <div class="p-4 alert alert-primary">
+                        <h3><b>Table is empty</b></h3>
+                    </div>
+                </div>
+        {% endif %}
+    </div>
+
+{% endblock %}
+
+{% block add_link %}
+    {{ url_for('tables.sale_of_items_table_add') }}
+{% endblock %}

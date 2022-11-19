@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link type="text/css" href="{{ url_for('static', filename='css/bootstrap.css')}}" rel="stylesheet" />
+        <link type="text/css" href="{{ url_for('static', filename='css/main.css')}}" rel="stylesheet" />
+
+        <link rel="shortcut icon" href="{{ url_for('static', filename='logo.jpg')}}" type="image/x-icon">
+
+        <title>
+            {% if title %}
+                {{ title }}
+            {% else %}
+                Название по-умолчанию
+            {% endif %}
+        </title>
+
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container justify-content-between align-items-center">
+                <a class="navbar-brand" href="/">
+                    <button type="button" class="btn btn-light fw-bold">
+                        SHOPPING CENTER
+                    </button>
+                </a>
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item ms-2">
+                            <div class="container-fluid dropdown mt-1">
+                                <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Tables
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="{{ url_for('tables.employees_table_view') }}">Employees</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('tables.jobs_table_view') }}">Jobs</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('tables.assignments_table_view') }}">Assignments</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('tables.sale_of_items_table_view') }}">Sale of items</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('tables.items_table_view') }}">Items</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('tables.supplies_table_view') }}">Supplies</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('tables.providers_table_view') }}">Providers</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('tables.manufacturers_table_view') }}">Manufacturers</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('tables.catalogs_table_view') }}">Catalogs</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('tables.groups_table_view') }}">Groups</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item ms-2">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item ms-2">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                    </ul>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Notifications
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Recent activities</h5>
+                                </div>
+                                <div class="modal-body">
+                                    {% if notifications %}
+                                        {% for item in notifications %}
+                                            <p class="alert justify-content-center
+                                            {% if item.color=='success' %}
+                                                alert-success
+                                            {% elif item.color=='warning' %}
+                                                alert-warning
+                                            {% elif item.color=='danger' %}
+                                                alert-danger
+                                            {% elif item.color=='primary' %}
+                                                alert-primary
+                                            {% endif %}
+                                            ">
+                                                {{ item.title }} <br>
+                                                {{ item.date.strftime('%d/%m/%Y, %H:%M:%S') }}
+                                            </p>
+                                        {% endfor %}
+                                    {% else %}
+                                        <p class="alert alert-primary justify-content-center">Notifications is empty</p>
+                                    {% endif %}
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="justify-content-start text-start">
+                                        <button type="button" class="btn btn-danger" id="clear_notifications">Clear</button>
+                                    </div>
+                                    <div class="justify-content-end">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close_notifications">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+
+        {% block content %}{% endblock %}
+
+        <!-- Modal for notifications -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div id="mymodal" class="modal fade in" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content text-center">
+                            <div class="modal-body text-center">
+                                    <ul>
+                                        {% for message in messages %}
+                                        <p>{{ message }}</p>
+                                        {% endfor %}
+                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endwith %}
+    </body>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js')}}"></script>
+
+</html>

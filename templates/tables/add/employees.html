@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-4">
+        <form action="" method="post"  novalidate class="form-control m-3 p-4">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.surname.label }}<br>
+                {{ form.surname(class_="form-control", size=32) }}<br>
+
+                {% for error in form.surname.errors %}
+                    <span class="alert alert-warning">{{ error }}</span>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.name.label }}<br>
+                {{ form.name(class_="form-control", size=32) }}<br>
+
+                {% for error in form.name.errors %}
+                    <span class="alert alert-warning">{{ error }}</span>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.patronymic.label }}<br>
+                {{ form.patronymic(class_="form-control", size=32) }}<br>
+
+                {% for error in form.patronymic.errors %}
+                    <span class="alert alert-warning">{{ error }}</span>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.phone_number.label }}<br>
+                {{ form.phone_number(class_="form-control") }}<br>
+
+                {% for error in form.phone_number.errors %}
+                    <span class="alert alert-warning">{{ error }}</span>
+                {% endfor %}
+            </p>
+
+
+            <div class="row">
+                <div class="col-2">
+                    {{ form.date_of_birth.label }}<br>
+                    {{ form.date_of_birth(class_="form-control w", size=32) }}<br>
+
+                    {% for error in form.date_of_birth.errors %}
+                        <span class="alert alert-warning">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="col-4">
+                    {{ form.gender.label }}<br>
+                    {{ form.gender(class_="form-control w-50", size=2) }}<br>
+
+                    {% for error in form.gender.errors %}
+                        <span class="alert alert-warning">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="col-6 justify-content-end text-end align-bottom">
+                    {{ form.submit(class_="btn btn-lg btn-primary mt-4") }}
+                </div>
+            </div>
+        </form>
+    </div>
+ {% endblock %}
