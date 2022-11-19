@@ -4,11 +4,13 @@ from app import app
 from app.models import *
 
 
+# Get all notifications
 @app.context_processor
 def context_processor():
     return dict(notifications=Notifications.query.order_by(Notifications.date.desc()).all())
 
 
+# Delete all notifications
 @app.route('/notifications/delete')
 def delete_notifications():
     for item in Notifications.query.all():

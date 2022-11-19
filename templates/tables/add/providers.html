@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-4">
+        <form action="" method="post"  novalidate class="form-control m-3 p-4 w-75">
+
+            {{ form.hidden_tag() }}
+
+            {{ form.address.label }}<br>
+            {{ form.address(class_="form-control", size=32) }}<br>
+
+            {% for error in form.address.errors %}
+                <span class="alert alert-warning">{{ error }}</span>
+            {% endfor %}
+
+            {{ form.phone_number.label }}<br>
+            {{ form.phone_number(class_="form-control", size=14) }}<br>
+
+            {% for error in form.phone_number.errors %}
+                <span class="alert alert-warning">{{ error }}</span>
+            {% endfor %}
+
+            <div class="col-4 justify-content-end text-end align-bottom">
+                {{ form.submit(class_="btn btn-lg btn-primary mt-4") }}
+            </div>
+
+        </form>
+    </div>
+ {% endblock %}

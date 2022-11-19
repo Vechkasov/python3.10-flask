@@ -54,8 +54,8 @@ class Assignment(db.Model):
 
 class Sale_of_item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    count = db.Column(db.Integer, primary_key=True, nullable=True)
-    sum = db.Column(db.Integer, primary_key=True, nullable=True)
+    count = db.Column(db.Integer, nullable=True)
+    sum = db.Column(db.Integer, nullable=True)
     date = db.Column(db.Date, default=datetime.utcnow)
 
     employee_id = db.Column(db.Integer, db.ForeignKey('employee.id'), nullable=True)
@@ -68,8 +68,8 @@ class Sale_of_item(db.Model):
 class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True, nullable=False)
-    count = db.Column(db.Integer, primary_key=True, nullable=True)
-    price = db.Column(db.Integer, primary_key=True, nullable=True)
+    count = db.Column(db.Integer, nullable=True)
+    price = db.Column(db.Integer, nullable=True)
 
     sale_of_items = db.relationship('Sale_of_item', backref='item', lazy='dynamic')
     supplies = db.relationship('Supply', backref='item', lazy='dynamic')
@@ -81,8 +81,8 @@ class Item(db.Model):
 class Supply(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date, default=datetime.utcnow)
-    count = db.Column(db.Integer, primary_key=True, nullable=True)
-    price = db.Column(db.Integer, primary_key=True, nullable=True)
+    count = db.Column(db.Integer, nullable=True)
+    price = db.Column(db.Integer, nullable=True)
 
     provider_id = db.Column(db.Integer, db.ForeignKey('provider.id'), nullable=True)
     catalog_id = db.Column(db.Integer, db.ForeignKey('catalog.id'), nullable=True)
