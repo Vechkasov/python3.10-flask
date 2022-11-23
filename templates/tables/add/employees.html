@@ -9,7 +9,7 @@
                 {{ form.surname(class_="form-control", size=32) }}<br>
 
                 {% for error in form.surname.errors %}
-                    <span class="alert alert-warning">{{ error }}</span>
+                    <p class="alert alert-warning">{{ error }}</p>
                 {% endfor %}
             </p>
 
@@ -18,7 +18,7 @@
                 {{ form.name(class_="form-control", size=32) }}<br>
 
                 {% for error in form.name.errors %}
-                    <span class="alert alert-warning">{{ error }}</span>
+                    <p class="alert alert-warning">{{ error }}</p>
                 {% endfor %}
             </p>
 
@@ -27,7 +27,7 @@
                 {{ form.patronymic(class_="form-control", size=32) }}<br>
 
                 {% for error in form.patronymic.errors %}
-                    <span class="alert alert-warning">{{ error }}</span>
+                    <p class="alert alert-warning">{{ error }}</p>
                 {% endfor %}
             </p>
 
@@ -36,7 +36,7 @@
                 {{ form.phone_number(class_="form-control") }}<br>
 
                 {% for error in form.phone_number.errors %}
-                    <span class="alert alert-warning">{{ error }}</span>
+                    <p class="alert alert-warning">{{ error }}</p>
                 {% endfor %}
             </p>
 
@@ -47,7 +47,7 @@
                     {{ form.date_of_birth(class_="form-control w", size=32) }}<br>
 
                     {% for error in form.date_of_birth.errors %}
-                        <span class="alert alert-warning">{{ error }}</span>
+                        <p class="alert alert-warning">{{ error }}</p>
                     {% endfor %}
                 </div>
                 <div class="col-4">
@@ -55,7 +55,7 @@
                     {{ form.gender(class_="form-control w-50", size=2) }}<br>
 
                     {% for error in form.gender.errors %}
-                        <span class="alert alert-warning">{{ error }}</span>
+                        <p class="alert alert-warning">{{ error }}</p>
                     {% endfor %}
                 </div>
                 <div class="col-6 justify-content-end text-end align-bottom">

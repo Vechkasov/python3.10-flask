@@ -8,9 +8,18 @@
                 <div class="col-4">
                     <div class="p-4 alert alert-primary">
 
-                        <div class="alert alert-light">
-                            <p>Name : {{ item.name }}</p>
-                            <p>Country : {{ item.country }}</p>
+                        <div class="row">
+                            <div class="col-10">
+                                <p><b>Country</b> : {{ item.country }}</p>
+                            </div>
+                            <div class="col-2 justify-content-end">
+                                <a href="{{ url_for('tables.manufacturers_table_delete', id=item.id) }}">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </a>
+                            </div>
+                            <div class="col-12">
+                                <p><b>Name</b> : {{ item.name }}</p>
+                            </div>
                         </div>
 
                     </div>

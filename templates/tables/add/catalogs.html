@@ -10,21 +10,21 @@
             {{ form.name(class_="form-control", size=32) }}<br>
 
             {% for error in form.name.errors %}
-                <span class="alert alert-warning">{{ error }}</span>
+                <p class="alert alert-warning">{{ error }}</p>
             {% endfor %}
 
             {{ form.manufacturer.label }}<br>
             {{ form.manufacturer(class_="form-control", size=4) }}<br>
 
             {% for error in form.manufacturer.errors %}
-                <span class="alert alert-warning">{{ error }}</span>
+                <p class="alert alert-warning">{{ error }}</p>
             {% endfor %}
 
             {{ form.group.label }}<br>
             {{ form.group(class_="form-control", size=4) }}<br>
 
             {% for error in form.group.errors %}
-                <span class="alert alert-warning">{{ error }}</span>
+                <p class="alert alert-warning">{{ error }}</p>
             {% endfor %}
 
             <div class="col-4 justify-content-end text-end align-bottom">

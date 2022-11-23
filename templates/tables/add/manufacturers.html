@@ -10,14 +10,14 @@
             {{ form.name(class_="form-control", size=32) }}<br>
 
             {% for error in form.name.errors %}
-                <span class="alert alert-warning">{{ error }}</span>
+                <p class="alert alert-warning">{{ error }}</p>
             {% endfor %}
 
             {{ form.country.label }}<br>
             {{ form.country(class_="form-control", size=32) }}<br>
 
             {% for error in form.country.errors %}
-                <span class="alert alert-warning">{{ error }}</span>
+                <p class="alert alert-warning">{{ error }}</p>
             {% endfor %}
 
         <div class="col-4 justify-content-end text-end align-bottom">

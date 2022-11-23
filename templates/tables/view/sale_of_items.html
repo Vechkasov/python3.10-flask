@@ -8,6 +8,18 @@
                 <div class="col-4">
                     <div class="p-4 alert alert-primary">
 
+                        <div class="row">
+                            <div class="col-10">
+                                <b>Count</b> : {{ item.count }}<br>
+                                <b>Sum</b> : {{ item.sum }}$
+                            </div>
+                            <div class="col-2 justify-content-end">
+                                <a href="{{ url_for('tables.sale_of_items_table_delete', id=item.id) }}">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </a>
+                            </div>
+                        </div>
+
                         <div class="alert alert-light">
                             <h3><b>Employee</b></h3>
                             <p>{{ item.employee.surname }}</p>
@@ -20,11 +32,6 @@
                             <h3><b>Item</b></h3>
                             <p>Name : {{ item.item.name }}</p>
                             <p>Price : {{ item.item.price }}$</p>
-                        </div>
-
-                        <div class="alert alert-light">
-                            <p>Count : {{ item.count }}</p>
-                            <p>Sum : {{ item.sum }}$</p>
                         </div>
 
                         <p class="justify-content-end text-end"><b>{{ item.date.strftime('%Y-%m-%d') }}</b></p>

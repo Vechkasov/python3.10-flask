@@ -10,14 +10,14 @@
             {{ form.address(class_="form-control", size=32) }}<br>
 
             {% for error in form.address.errors %}
-                <span class="alert alert-warning">{{ error }}</span>
+                <p class="alert alert-warning">{{ error }}</p>
             {% endfor %}
 
             {{ form.phone_number.label }}<br>
             {{ form.phone_number(class_="form-control", size=14) }}<br>
 
             {% for error in form.phone_number.errors %}
-                <span class="alert alert-warning">{{ error }}</span>
+                <p class="alert alert-warning">{{ error }}</p>
             {% endfor %}
 
             <div class="col-4 justify-content-end text-end align-bottom">

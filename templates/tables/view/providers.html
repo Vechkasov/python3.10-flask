@@ -8,9 +8,16 @@
                 <div class="col-4">
                     <div class="p-4 alert alert-primary">
 
-                        <div class="alert alert-light">
-                            <p>Address : {{ item.address }}</p>
-                            <p>Phone : {{ item.phone_number }}$</p>
+                        <div class="row">
+                            <div class="col-10">
+                                <p>Count : {{ item.address }}</p>
+                                <p>Price : {{ item.phone_number }}$</p>
+                            </div>
+                            <div class="col-2 justify-content-end">
+                                <a href="{{ url_for('tables.providers_table_delete', id=item.id) }}">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </a>
+                            </div>
                         </div>
 
                     </div>

@@ -10,21 +10,21 @@
             {{ form.name(class_="form-control", size=32) }}<br>
 
             {% for error in form.name.errors %}
-                <span class="alert alert-warning">{{ error }}</span>
+                <p class="alert alert-warning">{{ error }}</p>
             {% endfor %}
 
             {{ form.count.label }}<br>
             {{ form.count(class_="form-control", size=8) }}<br>
 
             {% for error in form.count.errors %}
-                <span class="alert alert-warning">{{ error }}</span>
+                <p class="alert alert-warning">{{ error }}</p>
             {% endfor %}
 
             {{ form.price.label }}<br>
             {{ form.price(class_="form-control", size=8) }}<br>
 
             {% for error in form.price.errors %}
-                <span class="alert alert-warning">{{ error }}</span>
+                <p class="alert alert-warning">{{ error }}</p>
             {% endfor %}
 
             <div class="col-4 justify-content-end text-end align-bottom">

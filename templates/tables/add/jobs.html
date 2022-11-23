@@ -9,7 +9,7 @@
                 {{ form.job_title(class_="form-control w-50", size=32) }}<br>
 
                 {% for error in form.job_title.errors %}
-                    <span class="alert alert-warning">{{ error }}</span>
+                    <p class="alert alert-warning">{{ error }}</p>
                 {% endfor %}
             </p>
 
@@ -19,7 +19,7 @@
                     {{ form.salary(class_="form-control", size=32) }}<br>
 
                     {% for error in form.salary.errors %}
-                        <span class="alert alert-warning">{{ error }}</span>
+                        <p class="alert alert-warning">{{ error }}</p>
                     {% endfor %}
                 </div>
                 <div class="col-6 justify-content-end text-end align-bottom">

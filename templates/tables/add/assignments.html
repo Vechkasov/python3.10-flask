@@ -10,7 +10,7 @@
                     {{ form.job(class_="form-control", size=4) }}<br>
 
                     {% for error in form.job.errors %}
-                        <span class="alert alert-warning">{{ error }}</span>
+                        <p class="alert alert-warning">{{ error }}</p>
                     {% endfor %}
                 </div>
                 <div class="col-6">
@@ -18,7 +18,7 @@
                     {{ form.employee(class_="form-control", size=4) }}<br>
 
                     {% for error in form.employee.errors %}
-                        <span class="alert alert-warning">{{ error }}</span>
+                        <p class="alert alert-warning">{{ error }}</p>
                     {% endfor %}
                 </div>
                 <div class="col-4">
@@ -26,7 +26,7 @@
                     {{ form.appointment_date(class_="form-control", size=32) }}<br>
 
                     {% for error in form.appointment_date.errors %}
-                        <span class="alert alert-warning">{{ error }}</span>
+                        <p class="alert alert-warning">{{ error }}</p>
                     {% endfor %}
                 </div>
                 <div class="col-4"></div>
